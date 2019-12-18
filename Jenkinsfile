@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Chrome') {
+    stage('Browser Tests') {
       parallel {
         stage('Chrome') {
           steps {
@@ -15,6 +15,14 @@ pipeline {
           }
         }
 
+      }
+    }
+
+    stage('Edge') {
+      steps {
+        sleep 5
+        echo 'Edge tests'
+        input(message: 'do you want to continue', ok: 'continue')
       }
     }
 
