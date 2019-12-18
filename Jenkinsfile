@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Chrome') {
-      steps {
-        echo 'chrome tests'
+      parallel {
+        stage('Chrome') {
+          steps {
+            echo 'chrome tests'
+          }
+        }
+
+        stage('Firefox') {
+          steps {
+            echo 'Firefox message'
+          }
+        }
+
       }
     }
 
